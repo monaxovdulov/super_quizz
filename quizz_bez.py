@@ -25,7 +25,7 @@ def test_console_run():
         question = game.get_current_question()
 
         # print question and answer options
-        print(question.question)
+        print(question.text)
         counter = 1
         for option in question.get_answer_options():
             print(f"{counter}: {option}")

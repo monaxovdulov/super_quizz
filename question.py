@@ -1,6 +1,6 @@
 class Question:
-    def __init__(self, question: str, answer: int, category: str, score: int, options: dict):
-        self.question = question
+    def __init__(self, text: str, answer: int, category: str, score: int, options: dict):
+        self.text = text
         self.answer = answer
         self.category = category
         self.score = score
