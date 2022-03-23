@@ -8,3 +8,6 @@ class Question:
 
     def check_answer(self, answer: int) -> bool:
         return self.answer == answer
+
+    def get_correct_answer(self):
+        return self.options[self.answer]
