@@ -2,6 +2,15 @@
 # создаются игроки у кажого есть имя и очки
 #
 
+# this function is written bi Github Copliot
+def get_user_input(question, error_msg, valid_answers):
+    while True:
+        answer = input(question).lower()
+        if answer in valid_answers:
+            return answer
+        else:
+            print(error_msg)
+
 
 questions_dict = {
     1: {
