@@ -1,5 +1,5 @@
 class Question:
-    def __init__(self, question: str, answer: int, category: str, score: int, options: list):
+    def __init__(self, question: str, answer: int, category: str, score: int, options: dict):
         self.question = question
         self.answer = answer
         self.category = category
@@ -10,4 +10,7 @@ class Question:
         return self.answer == answer
 
     def get_correct_answer(self):
-        return self.options[self.answer]
+        return self.options[str(self.answer)]
+
+    def get_answer_options(self):
+        return self.options.values()

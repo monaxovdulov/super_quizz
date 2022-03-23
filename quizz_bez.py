@@ -25,13 +25,14 @@ def test_console_run():
         question = game.get_current_question()
 
         # print question and answer options
-        print(question.text)
+        print(question.question)
         counter = 1
-        for option in question.options:
+        for option in question.get_answer_options():
             print(f"{counter}: {option}")
+            counter += 1
 
         # get user answer
-        answer = int(input("Select answer"))
+        answer = int(input("Select answer: "))
 
         # check answer
         is_correct = game.answer(answer)
