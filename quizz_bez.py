@@ -1,40 +1,19 @@
-# выбирается режим игры либо с компом либо с игроками
-# создаются игроки у кажого есть имя и очки
-#
+import json
 
-# this function is written bi Github Copliot
-def get_user_input(question, error_msg, valid_answers):
-    while True:
-        answer = input(question).lower()
-        if answer in valid_answers:
-            return answer
-        else:
-            print(error_msg)
+from game import Game
+from question import Question
 
 
-questions_dict = {
-    1: {
-        "text": "В каком году началась первая мировая война?",
-        "options": ("1909", "1914", "1919"),
-        "correct": "1914",
-
-    },
-    2: {
-        "text": "Какой страны не было в Антанте во время ПМВ?",
-        "options": ("Российская империя", "Япония", "Болгарское царство"),
-        "correct": "Болгарское царство"
-    },
-    3: {
-        "text": "Какая страна не сохраняла нейтралитет в ПМВ?",
-        "options": ("Испания", "Швейцария", "Сербия", "Швеция"),
-        "correct": "Сербия"
-    },
-}
+def main():
+    # read json file
+    with open('quizz.json') as json_file:
+        data = json.load(json_file)
+    questions = []
+    for q in data:
+        questions.append(Question(q['text'], q['correct'], q['category'], q['score'], q['options']))
+    game = Game(questions)
+    game.start()
 
 
-
-
-class Game:
-    pass
-
-
+if __name__ == '__main__':
+    main()
